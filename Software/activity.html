@@ -1,101 +1,92 @@
 <html>
-
-<head>
-    <link rel="stylesheet" href="activity.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
+    <head> <link rel="stylesheet" href="activity.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    </head>
 <style>
-    table,
-    td,
-    th {
-        border: 1px solid black;
+    table, td, th {
+    border: 1px solid black;
     }
-
     table {
-        border-collapse: collapse;
-        width: 50%;
+    border-collapse: collapse;
+    width: 50%;
     }
-
     th {
-        height: 30px;
+    height: 30px;
     }
-
     table {
-        table-layout: fixed;
+    table-layout: fixed;
     }
 </style>
-
 <body>
-    <h1 style="text-align: center; margin-top:60px">Activities To-do list</h1>
-    <h2 id='date' style="margin-left:580px">Date:</h2>
+        <h1 style="text-align: center; margin-top:60px">Activities To-do list</h1>
+        <h2 id='date' style="margin-left:580px">Date:</h2>
     <div class="Container">
-        <table class='table' style="margin-left: 100px;" cellspacing='40'>
-            <tr>
-                <th>Time</th>
-                <th>Task</th>
-            </tr>
-            <tr bgcolor='#ff8080'>
-                <th>8:00 a.m</th>
-                <th class='checked' id='activity1'></th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id="1" value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-            <tr bgcolor='#ffff80'>
-                <th>10:00 a.m</th>
-                <th class='checked' id='activity2'>Exercise 1 hours</th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id="2" value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-            <tr bgcolor='#ff8080'>
-                <th>12:00 p.m</th>
-                <th class='checked' id='activity3'></th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id='3' value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-            <tr bgcolor='#b3e6ff'>
-                <th>2:00 p.m</th>
-                <th class='checked' id='activity4'>Watch commedy</th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id='4' value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-            <tr bgcolor='#98e698'>
-                <th>5:00 p.m</th>
-                <th class='checked' id='activity5'>Cooking</th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id='5' value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-            <tr bgcolor='#ff8080'>
-                <th>6:00 p.m</th>
-                <th class='checked' id='activity6'></th>
-                <th>
-                    <div style="padding: 30px">
-                        <label><input type="checkbox" id='6' value="" onchange="handleChange(this)"></label>
-                    </div>
-                </th>
-            </tr>
-        </table>
-        <div class="btn_group">
-            <button type="submit" form="nameform" value="Submit">Submit</button>
-            <button type="cancel" form="nameform" value="Cancel">Cancel</button>
+    <table class='table' style="margin-left: 100px;" cellspacing='40'>
+    <tr>
+        <th>Time</th>
+        <th>Task</th>   
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>8:00 a.m</th>
+        <th class='checked' id='activity1'></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" name="check1" id="1" value=""></label>
         </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ffff80'>
+        <th>10:00 a.m</th>
+        <th class='checked' id='activity2'>Exercise 1 hours</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" id="2" value=""  ></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>12:00 p.m</th>
+        <th class='checked' id='activity3'></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" id='3' value="" ></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#b3e6ff'>
+        <th>2:00 p.m</th>
+        <th class='checked' id='activity4' >Watch commedy</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" id='4' value="" ></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#98e698'>
+        <th>5:00 p.m</th>
+        <th class='checked' id='activity5'>Cooking</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" id='5' value=""></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>6:00 p.m</th>
+        <th class='checked' id='activity6'></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" id='6' value="" ></label>
+        </div>
+        </th>
+    </tr>
+    </table>
+<div class="btn_group">
+    <button type="submit" form="nameform" value="Submit" onclick="clicksub()">Submit</button>
+    <button type="cancel" form="nameform" value="Cancel" onclick="cancle()">Cancel</button>
+</div>
     </div>
     <script src="activity.js"></script>
 
 </body>
-
 </html>

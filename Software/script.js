@@ -14921,7 +14921,6 @@
 })));
 
 
-
 function Submit_data() {
     const url = "https://exceed.superposition.pknn.dev/data/15"
     fetch(url)
@@ -14930,39 +14929,44 @@ function Submit_data() {
         })
         .then(function (myJson) {
             let Known_data = myJson
-            let Username = document.getElementById("userinpute").value
+            let Username = document.getElementById("username").value
             let user_data = {
-                "fullname": document.getElementById("fullnameinput").value,
-                "surname": document.getElementById("surnameinput").value,
+                "fullname": document.getElementById("fullname").value,
+                "surname": document.getElementById("surname").value,
                 "gender": document.getElementById("gender").value,
-                "age": document.getElementById("ageinput").value,
+                "age": document.getElementById("age").value,
                 "pill_time": {
-                    "08:00": {
-                        used: document.getElementById("morning").checked,
-                        alarm: true
+                    // rgb = [r,g,b,rg,rb,gb,w]
+                    "8": {
+                        color: "r",
+                        pill: true
+
                     },
-                    "12:00": {
-                        used: document.getElementById("noon").checked,
-                        alarm: true
+                    "12": {
+                        color: "r",
+                        pill: true
                     },
-                    "18:00": {
-                        used: document.getElementById("evening").checked,
-                        alarm: true
-                    }
+                    "18": {
+                        color: "r",
+                        pill: true
+                    },
+                    "activity": {}
                 },
-                "tele_num": document.getElementById("tel").value,
-                "Emer_tele_num": document.getElementById("em_tel").value,
-                "activities": {}
+                //"tele_num": document.getElementById("tel").value,
+                //"Emer_tele_num": document.getElementById("em_tel").value,
+                //"activities": {}
             }
             Known_data[Username] = user_data
-            POST(Known_data)
+            POST(Known_data, "/15_data")
+            POST(Known_data[Username]["pill_time"], "/15_pill_time")
         });
 }
 
-function POST(data) {
-    const url = "https://exceed.superposition.pknn.dev/data/15"
+
+function POST(data, urlplus) {
+    const url = "https://exceed.superposition.pknn.dev/data"
     console.log("Hello world")
-    fetch(url, {
+    fetch(url + urlplus, {
             method: 'POST',
             body: JSON.stringify({
                 "data": data
@@ -14975,9 +14979,17 @@ function POST(data) {
         .then((err) => console.log(err))
 }
 
-function GET() {
-    const url = "https://exceed.superposition.pknn.dev/data/15_pill_time"
-    fetch(url)
+function GET__() {
+    const url = "https://exceed.superposition.pknn.dev/data"
+    fetch(url + "/15_Snooze")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            let text = JSON.stringify(myJson);
+            document.getElementById('GGWP').innerHTML += `<h3>${text}</h3>`
+        });
+    fetch(url + "/15_pill_time")
         .then(function (response) {
             return response.json();
         })
@@ -14987,12 +14999,49 @@ function GET() {
         });
 }
 
-function reset() {
-    let data = {}
-    POST(data)
-    time_differential()
+
+
+
+
+
+
+function Snooze_off() {
+    const url = "https://exceed.superposition.pknn.dev/data"
+    console.log("Hello world")
+    fetch(url + "/15_Snooze", {
+            method: 'POST',
+            body: JSON.stringify({
+                "data": {
+                    "Snooze": false
+                }
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => res.json())
+        .then((data) => console.log(data))
+        .then((err) => console.log(err))
 }
 
+function reset() {
+    let data = {}
+    POST(data, "/15_data")
+}
+
+async function check_loop() {
+    let x = setInterval(() => {
+        fetch(url + "/15_Snooze")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                if (myJson['Snooze'] == true) {
+                    clearInterval(x);
+                }
+            });
+    }, 1500);
+    POST('', "/pill_time")
+}
 
 function time_differential() {
     var startTime = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -15002,6 +15051,25 @@ function time_differential() {
             .diff(moment(startTime, 'YYYY/MM/DD HH:mm:ss'))
         ).asSeconds();
     return second_diff
+}
+
+function Check_loop() {
+    let time_left = time_differential()
+    if (time_left <= 0) {
+        GET()
+    }
+}
+
+count = 0;
+
+function POST_Pill(color, pill) {
+    let res = {
+        'color': "r",
+        'pill': true,
+        'count': count
+    }
+    POST(res, "/15_pill_time")
+    count += 1
 }
 
 function activity(activity) {

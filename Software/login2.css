@@ -1,0 +1,56 @@
+body{
+    margin:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.con_left{
+    width: 100%;
+
+}
+.con_right{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.top{
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+
+.head{
+    position: relative;
+    top : 5px;
+    font-size: 32pt;
+    float: left;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
+
+
+}
+
+.tagline{
+    font-size: 12pt;
+    font-weight: bold;
+    float:right;
+
+}
+
+.login{
+    text-align: center;
+    padding: 10;
+    position: absolute;
+    font-size : 12pt;
+    margin-top: 7%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);

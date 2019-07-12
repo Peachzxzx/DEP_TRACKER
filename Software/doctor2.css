@@ -1,0 +1,144 @@
+body{
+    margin:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.con_left{
+    width: 100%;
+
+}
+.con_right{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.top{
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+.head{
+    /* position: relative; */
+    top : 5px;
+    font-size: 32pt;
+    float: left;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
+
+
+}
+
+.tagline{
+    font-size: 12pt;
+    font-weight: bold;
+    float:right;
+
+}
+
+.button{
+    padding: 20px;
+    text-align: center;
+    float: right;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  tr:nth-child(odd) {
+    background-color: white;
+  }
+
+.patients {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+
+  .active, .patients:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+
+  .patients:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+
+.activity {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+
+  .active, .activity:hover {
+    background-color: #ccc;
+  }
+  
+  .act {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+
+  .activity:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2212";
+  }
