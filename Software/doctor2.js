@@ -82,3 +82,9 @@ console.log(user)
 function logout() {
     window.location.href = "login2.html";
 }
+function clearsss(){
+    console.log("Hello")
+    localStorage.clear();
+    window.location.href = "login2.html";
+
+}
