@@ -14788,7 +14788,9 @@ function Submit_data() {
         "surname":document.getElementById("username").value,
         "gender":document.getElementById("gender").value,
         "age":document.getElementById("age").value,
-        "pill_time": {"08:00": document.getElementById("").value,"12:00": True,"18:00":True},
+        "pill_time": {"08:00": {alarm:document.getElementById("").value, used : true},
+            "12:00": {alarm:document.getElementById("").value, used : true},
+            "18:00":{alarm:document.getElementById("").value, used : true}},
         "tele_num" : document.getElementById("").value,
         "Emer_tele_num" : document.getElementById("").value,
         "activity": {}
