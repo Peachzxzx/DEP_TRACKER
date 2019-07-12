@@ -14960,14 +14960,14 @@ function Submit_data() {
                 "activities": {}
             }
             Known_data[Username] = user_data
-            POST(Known_data)
-            await sleep(1000)
+            POST(Known_data,"/15_data")
+            await sleep(1500)
             document.location.href = "activity.html"
         });
 }
 
-function POST(data) {
-    const url = "https://exceed.superposition.pknn.dev/data/15_data"
+function POST(data, url_plus) {
+    const url = "https://exceed.superposition.pknn.dev/data" + url_plus
     console.log("Hello world")
     fetch(url, {
             method: 'POST',
@@ -14989,8 +14989,9 @@ function GET() {
             return response.json();
         })
         .then(function (myJson) {
-            let JSONs = myJson
+            JSON_d = myJson
         });
+    return JSON_d
 }
 
 function reset() {
@@ -15021,4 +15022,8 @@ function activity(activity) {
     }
     activity[activity_name] = activity_data
     return activity
+}
+
+function Change_True() {
+    console.log(JSON.stringify(GET()))
 }
