@@ -14788,9 +14788,9 @@ function Submit_data() {
         "surname":document.getElementById("username").value,
         "gender":document.getElementById("gender").value,
         "age":document.getElementById("age").value,
-        "pill_time": document.getElementById("pill_time").value,
-        "tele_num" : "",
-        "Emer_tele_num" : "",
+        "pill_time": {"08:00": document.getElementById("").value,"12:00": True,"18:00":True},
+        "tele_num" : document.getElementById("").value,
+        "Emer_tele_num" : document.getElementById("").value,
         "activity": {}
     }
     Known_data[Username] = user_data
@@ -14831,16 +14831,23 @@ function GET() {
 function reset() {
     let data = {}
     POST(data)
-    time()
+    time_differential()
 }
 
 
 function time_differential(){
     var startTime = moment().format('YYYY-MM-DD HH:mm:ss');
-    var endTime = moment().format('YYYY-MM-DD HH') + ':06:00';
-    var second = moment
+    var endTime = moment().format('YYYY-MM-DD') + ' 18:00:00';
+    var second_diff = moment
         .duration(moment(endTime, 'YYYY/MM/DD HH:mm:ss')
         .diff(moment(startTime, 'YYYY/MM/DD HH:mm:ss'))
         ).asSeconds();
-    console.log(second)
+    return second_diff
+}
+
+function activity(activity) {
+    let activity_name = ""
+    let activity_data = {time_start: "", time_stop: "", color: "",alarm = false}
+    activity[activity_name] = activity_data
+    return activity 
 }
