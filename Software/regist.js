@@ -14922,49 +14922,42 @@
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-function Submit_data() {
-    console.log("World Hello World")
-    const url = "https://exceed.superposition.pknn.dev/data/15_data"
-    fetch(url)
-        .then(function (response) {
-            console.log("World Hello World")
-            return response.json();
-        })
-        .then(async function (myJson) {
-            let Known_data = myJson
-            let Username = document.getElementById("userinput").value
-            console.log("World Hello World")
-            let user_data = {
-                "fullname": document.getElementById("fullnameinput").value,
-                "surname": document.getElementById("surnameinput").value,
-                "gender": document.getElementById("gender").value,
-                "age": document.getElementById("ageinput").value,
-                "pill_time": {
-                    "08:00": {
-                        used: document.getElementById("morning").checked,
-                        alarm: true
-                    },
-                    "12:00": {
-                        used: document.getElementById("noon").checked,
-                        alarm: true
-                    },
-                    "18:00": {
-                        used: document.getElementById("evening").checked,
-                        alarm: true
-                    }
-                },
-                "tele_num": document.getElementById("tel").value,
-                "Emer_tele_num": document.getElementById("em_tel").value,
-                "activities": {}
-            }
-            Known_data[Username] = user_data
-            POST(Known_data,"/15_data")
-            await sleep(1500)
-            document.location.href = "activity.html"
-        });
 }
+
+async function Submit_data() {
+    let Known_data = {}
+    let Username = document.getElementById("userinput").value
+    let user_data = {
+        "fullname": document.getElementById("fullnameinput").value,
+        "surname": document.getElementById("surnameinput").value,
+        "gender": document.getElementById("gender").value,
+        "age": document.getElementById("ageinput").value,
+        "pill_time": {
+            "8": {
+                used: document.getElementById("morning").checked,
+                alarm: true
+            },
+            "12": {
+                used: document.getElementById("noon").checked,
+                alarm: true
+            },
+            "18": {
+                used: document.getElementById("evening").checked,
+                alarm: true
+            }
+        },
+        "tele_num": document.getElementById("tel").value,
+        "Emer_tele_num": document.getElementById("em_tel").value,
+        "activities": {}
+    }
+    Known_data[Username] = user_data
+    console.log(Known_data[Username]["pill_time"])
+    POST(Known_data, "/15_data")
+    POST(Known_data[Username]["pill_time"], "/15_pill_time")
+    await sleep(5500)
+    document.location.href = "activity.html"
+}
+
 
 function POST(data, url_plus) {
     const url = "https://exceed.superposition.pknn.dev/data" + url_plus

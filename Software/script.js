@@ -14976,7 +14976,7 @@ function POST(data) {
 }
 
 function GET() {
-    const url = "https://exceed.superposition.pknn.dev/data/15"
+    const url = "https://exceed.superposition.pknn.dev/data/15_pill_time"
     fetch(url)
         .then(function (response) {
             return response.json();

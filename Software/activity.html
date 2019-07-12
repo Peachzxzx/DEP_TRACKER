@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="wrist_style.css">
+    <link rel="stylesheet" href="activity.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <style>
     table,
@@ -30,64 +27,64 @@
 
 <body>
     <h1 style="text-align: center; margin-top:60px">Activities To-do list</h1>
-    <h2 style="margin-left:580px">Date.....................................</h2>
+    <h2 id='date' style="margin-left:580px">Date:</h2>
     <div class="Container">
-        <table class='table' style="margin-left: 0px;" cellspacing='40'>
+        <table class='table' style="margin-left: 100px;" cellspacing='40'>
             <tr>
                 <th>Time</th>
                 <th>Task</th>
             </tr>
             <tr bgcolor='#ff8080'>
                 <th>8:00 a.m</th>
-                <th class='checked' id='activity1'>Take pills</th>
+                <th class='checked' id='activity1'></th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value="" onchange="handleChange(this)"></label>
+                        <label><input type="checkbox" id="1" value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
             <tr bgcolor='#ffff80'>
                 <th>10:00 a.m</th>
-                <th></th>
+                <th class='checked' id='activity2'>Exercise 1 hours</th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value=""></label>
+                        <label><input type="checkbox" id="2" value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
             <tr bgcolor='#ff8080'>
                 <th>12:00 p.m</th>
-                <th>Take pills</th>
+                <th class='checked' id='activity3'></th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value=""></label>
+                        <label><input type="checkbox" id='3' value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
             <tr bgcolor='#b3e6ff'>
                 <th>2:00 p.m</th>
-                <th></th>
+                <th class='checked' id='activity4'>Watch commedy</th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value=""></label>
+                        <label><input type="checkbox" id='4' value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
             <tr bgcolor='#98e698'>
-                <th>4:00 p.m</th>
-                <th></th>
+                <th>5:00 p.m</th>
+                <th class='checked' id='activity5'>Cooking</th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value=""></label>
+                        <label><input type="checkbox" id='5' value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
             <tr bgcolor='#ff8080'>
                 <th>6:00 p.m</th>
-                <th>Take pills</th>
+                <th class='checked' id='activity6'></th>
                 <th>
                     <div style="padding: 30px">
-                        <label><input type="checkbox" value=""></label>
+                        <label><input type="checkbox" id='6' value="" onchange="handleChange(this)"></label>
                     </div>
                 </th>
             </tr>
@@ -97,8 +94,7 @@
             <button type="cancel" form="nameform" value="Cancel">Cancel</button>
         </div>
     </div>
-
-    <script src="wrist.js"></script>
+    <script src="activity.js"></script>
 
 </body>
 
