@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="regis2.css">
+    <title>DEPTRACKER | Registration</title>
+</head>
+
+<body>
+    <script src="regist.js"></script>
+    <div class='top'>
+        <div class="con_left">
+            <h1 class='head'>DEPTRACKER</h1>
+        </div>
+        <div class="con_right">
+            <h2 class='tagline'>The Tracker for Depression Patients.</h2>
+        </div>
+
+
+    </div>
+
+
+    </div>
+    <div class="information">
+        <div>
+            <h3><span style="color: black">Username : <input id='userinput' required> </input></span>
+            </h3>
+        </div>
+
+        <div>
+            <h3><span style="color: black">Firstname : <input id='fullnameinput' required> </input></span>
+            </h3>
+        </div>
+        <div>
+            <h3><span style="color: black">Surname : <input id='surnameinput' required></input></span>
+            </h3>
+        </div>
+        <div>
+            <h3><span style="color: black">Gender : <select id='gender'>
+                        <option id="man">male</option>
+                        <option id="woman">female</option>
+                    </select></span>
+            </h3>
+        </div>
+        <div>
+            <h3 id='agebox'><span style="color: black">Age : <input id='ageinput' required> </input></span>
+            </h3>
+        </div>
+        <div>
+            <h3><span style="color: black">Pill time : <input type="checkbox" id='morning'> 8.00
+                    <input type="checkbox" id='noon'> 12.00
+                    <input type="checkbox" id='evening'> 18.00</span>
+            </h3>
+        </div>
+        <div>
+            <h3><span style="color: black">Telephone number : <input id='tel' required> </input></span>
+            </h3>
+        </div>
+        <div>
+            <h3><span style="color: black">Emergency number : <input id='em_tel' required> </input></span>
+            </h3>
+        </div>
+        <button onclick="checkForm()">Register</a></button>
+
+    </div>
+</body>

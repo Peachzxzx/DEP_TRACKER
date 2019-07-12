@@ -1,10 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-    <link rel="stylesheet" href="login2.css">
-    <head>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="login2.css">
         <title>DEPTRACKER | Login</title>
-    </head>
-    <body>
+</head>
+
+<body>
         <div class='top'>
                 <div class="con_left">
                         <h1 class='head'>DEPTRACKER</h1>
@@ -12,21 +17,24 @@
                 <div class="con_right">
                         <h2 class='tagline'>The Tracker for Depression Patients.</h2>
                 </div>
-                   
-              
-                </div>
+
+
+        </div>
         <div class='loginbox'>
                 <div class="login">
                         <p><label for="user"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" id = 'login'><button type="submit">Login</button></p>
+                                <input type="text" placeholder="Enter Username" id='login'><button type="submit"
+                                        onclick="login()">Login</button></p>
                         <p><label for="pass"><b>for doctor</b></label>
-                        <input type="text" placeholder="Enter DoctorID" id = 'doctor'><button type="submit" onclick="doclog()">Login</button></p>
-                        <button onclick="window.location.href = 'registpage.html';">Register</button>
-                        </div>
-                    </div>
+                                <input type="text" placeholder="Enter DoctorID" id='doctor'><button type="submit"
+                                        onclick="doclog()">Login</button></p>
+                        <button onclick="window.location.href = 'regis2.html';">Register</button>
+                </div>
+        </div>
         <script src='login2.js'></script>
 
 
 
-    </body>
+</body>
+
 </html>

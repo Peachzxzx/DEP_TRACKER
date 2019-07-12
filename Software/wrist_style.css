@@ -1,4 +1,4 @@
-.table{
+.table {
     margin-top: 50px;
 }
 
@@ -11,14 +11,14 @@
     margin-top: -20px;
 }
 
-.btn_group{
+.btn_group {
     display: flex;
     width: 100%;
     justify-content: center;
     padding: 20px;
 }
 
-.checked{
+.checked {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
