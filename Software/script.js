@@ -15010,8 +15010,8 @@ function activity(activity) {
         time_start: "",
         time_stop: "",
         color: "",
-        done = false,
-        alarm = false
+        done: false,
+        alarm: false
     }
     activity[activity_name] = activity_data
     return activity

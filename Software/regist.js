@@ -14920,17 +14920,22 @@
 
 })));
 
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 function Submit_data() {
-    const url = "https://exceed.superposition.pknn.dev/data/15"
+    console.log("World Hello World")
+    const url = "https://exceed.superposition.pknn.dev/data/15_data"
     fetch(url)
         .then(function (response) {
+            console.log("World Hello World")
             return response.json();
         })
-        .then(function (myJson) {
+        .then(async function (myJson) {
             let Known_data = myJson
-            let Username = document.getElementById("userinpute").value
+            let Username = document.getElementById("userinput").value
+            console.log("World Hello World")
             let user_data = {
                 "fullname": document.getElementById("fullnameinput").value,
                 "surname": document.getElementById("surnameinput").value,
@@ -14956,11 +14961,13 @@ function Submit_data() {
             }
             Known_data[Username] = user_data
             POST(Known_data)
+            await sleep(1000)
+            document.location.href = "activity.html"
         });
 }
 
 function POST(data) {
-    const url = "https://exceed.superposition.pknn.dev/data/15"
+    const url = "https://exceed.superposition.pknn.dev/data/15_data"
     console.log("Hello world")
     fetch(url, {
             method: 'POST',
@@ -14976,14 +14983,13 @@ function POST(data) {
 }
 
 function GET() {
-    const url = "https://exceed.superposition.pknn.dev/data/15"
+    const url = "https://exceed.superposition.pknn.dev/data/15_data"
     fetch(url)
         .then(function (response) {
             return response.json();
         })
         .then(function (myJson) {
-            let text = JSON.stringify(myJson);
-            document.getElementById('GGWP').innerHTML += `<h3>${text}</h3>`
+            let JSONs = myJson
         });
 }
 
@@ -15010,8 +15016,8 @@ function activity(activity) {
         time_start: "",
         time_stop: "",
         color: "",
-        done = false,
-        alarm = false
+        done: false,
+        alarm: false
     }
     activity[activity_name] = activity_data
     return activity
