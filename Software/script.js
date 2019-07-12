@@ -1,7 +1,16 @@
+let data_stucture = {email: user_data}
+let user_data = {fullname: "",
+    surname:"",
+    gender:"",
+    age:"",
+    pill_time: "",
+    activity: activity_data}
+let activity_data = {activity_name = {time_start: "", time_stop: "", color: ""}}
+
 function POST() {
     let email = document.getElementById("EEMM").value
     const url = "https://exceed.superposition.pknn.dev/data/15"
-    fetch(url + '', {
+    fetch(url, {
         method: 'POST',
         body: JSON.stringify({"data" :{
             "Email": email}
@@ -15,7 +24,7 @@ function POST() {
 
 function GET() {
     const url = "https://exceed.superposition.pknn.dev/data/15"
-    fetch(url + '')
+    fetch(url)
   .then(function(response) {
     return response.json();
   })
