@@ -1,48 +1,93 @@
-var user = []
-// age = getElementById('ageinput').value
-// age = parseInt(age)
-// if (age==NaN){
-// document.getElementById('agebox').innerText = 'input number'
-// }
-function regist(a) {
-    let name = document.getElementById('userinput').value
-    console.log(name)
-    let firstname = document.getElementById('fullnameinput').value;
-    console.log(firstname)
-    let lastname = document.getElementById('surnameinput').value;
-    console.log(lastname)
-    let gend = document.getElementById('gender').value;
-    console.log(gend)
-    let ag = document.getElementById('ageinput').value;
-    console.log(ag)
-    let pill = [false, false, false]
-    if (document.getElementById('morning').checked == true) {
-        pill[0] = true
+<html>
+    <head> <link rel="stylesheet" href="wrist_style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    </head>
+<style>
+    table, td, th {
+    border: 1px solid black;
     }
-    if (document.getElementById('noon').checked == true) {
-        pill[1] = true
+    table {
+    border-collapse: collapse;
+    width: 50%;
     }
-    if (document.getElementById('evening').checked == true) {
-        pill[2] = true
+    th {
+    height: 30px;
     }
-    console.log(pill)
-    let telnum = document.getElementById('tel').value;
-    console.log(telnum)
-    let emnum = document.getElementById('em_tel').value;
-    console.log(emnum)
-    let activities = [false, false, false]
-    user.push({
-        username: name,
-        fullname: firstname,
-        surname: lastname,
-        gender: gend,
-        age: ag,
-        medicine: pill,
-        telephone: telnum,
-        emergency: emnum,
-        pill_take: med_act,
-        activities: activities
-    })
-    console.log(user)
+    table {
+    table-layout: fixed;
+    }
+</style>
+<body>
+        <h1 style="text-align: center; margin-top:60px">Activities To-do list</h1>
+        <h2 style="margin-left:580px">Date.....................................</h2>
+    <div class="Container">
+    <table class='table' style="margin-left: 0px;" cellspacing='40'>
+    <tr>
+        <th>Time</th>
+        <th>Task</th>   
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>8:00 a.m</th>
+        <th class='checked' id='activity1'>Take pills</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value="" onchange="handleChange(this)"></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ffff80'>
+        <th>10:00 a.m</th>
+        <th></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value=""></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>12:00 p.m</th>
+        <th>Take pills</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value=""></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#b3e6ff'>
+        <th>2:00 p.m</th>
+        <th></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value=""></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#98e698'>
+        <th>4:00 p.m</th>
+        <th></th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value=""></label>
+        </div>
+        </th>
+    </tr>
+    <tr bgcolor='#ff8080'>
+        <th>6:00 p.m</th>
+        <th>Take pills</th>
+        <th>
+        <div style="padding: 30px">
+            <label><input type="checkbox" value=""></label>
+        </div>
+        </th>
+    </tr>
+    </table>
+<div class="btn_group">
+    <button type="submit" form="nameform" value="Submit">Submit</button>
+    <button type="cancel" form="nameform" value="Cancel">Cancel</button>
+</div>
+    </div>
 
-}
+    <script src="wrist.js"></script>
+
+</body>
+</html>

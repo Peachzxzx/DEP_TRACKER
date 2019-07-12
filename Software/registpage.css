@@ -1,0 +1,19 @@
+.topic{
+    width: 40%;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightcoral;
+}
+
+.information{
+    width: 90%;
+    height: 80%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blueviolet;
+    padding-top: 10px;
+    padding-left: 20px;
+}
