@@ -41,7 +41,6 @@ function Submit_data() {
 
 function POST(data, urlplus) {
     const url = "https://exceed.superposition.pknn.dev/data"
-    console.log("Hello world")
     fetch(url + urlplus, {
             method: 'POST',
             body: JSON.stringify({
@@ -75,15 +74,26 @@ function GET__() {
         });
 }
 
-
-
-
-
+function initial() {
+    userssss = []
+    userssss.push({
+        username: "",
+        fullname: "",
+        surname: "",
+        gender: "",
+        age: "",
+        medicine: "",
+        telephone: "",
+        emergency: "",
+        pill_take: [false, false, false],
+        activities: [false, false, false]
+    })
+    localStorage.setItem('myUser2', JSON.stringify(userssss));
+}
 
 
 function Snooze_off() {
     const url = "https://exceed.superposition.pknn.dev/data"
-    console.log("Hello world")
     fetch(url + "/15_Snooze", {
             method: 'POST',
             body: JSON.stringify({
@@ -132,19 +142,24 @@ function time_differential(hours, min) {
 }
 count = 0;
 
-pill_array = ['08', '12', '18']
-activites_array = ['10', '14', '16']
-activites_min_array = ["00", "00", "00"]
-activites_color = ['rg', "gb", "g"]
-pill_min_array = ["00", "00", "00"]
+pill_array = ['08', '12', '18'];
+activities_array = ['10', '14', '16'];
+activities_min_array = ["00", "00", "00"];
+activities_color = ['rg', "gb", "g"];
+pill_min_array = ["00", "00", "00"];
+index_name = ""
+index_s = ""
+index = ""
+user = ""
 
 function Check_loop_sent() {
     let user = JSON.parse(localStorage['myUser2'])
-    let pill_time = user["pill_take"]
-    let activity_time = user["activites"]
+    console.log(user)
+    let activity_time = user[0]["activities"]
+    console.log(activity_time)
 
     for (let index = 0; index < 3; index++) {
-        let user = JSON.parse(localStorage['myUser2'])
+        let res = user[0]["pill_take"][index]
         if (res) {
             let time_left = time_differential(parseInt(pill_array[index], 10), parseInt(pill_min_array[index], 10))
             if (time_left <= 0) {
@@ -163,13 +178,13 @@ function Check_loop_sent() {
         for (let index = 0; index < 3; index++) {
             let res = activity_time[index]
             if (res) {
-                let time_left = time_differential(parseInt(activites_array[index], 10), parseInt(activites_min_array[index], 10))
+                let time_left = time_differential(parseInt(activities_array[index], 10), parseInt(activities_min_array[index], 10))
                 if (time_left <= 0) {
-                    timesss = activites_array[index]
+                    timesss = activities_array[index]
                     index_s = index
                     index_name = "activities"
                     POST({
-                        "color": activites_color[index],
+                        "color": activities_color[index],
                         "pill": "True",
                         "count": count
                     }, "/15_Pill_time")
@@ -184,19 +199,19 @@ function Check_loop_sent() {
 
 function Check_loop_get() {
     let user = JSON.parse(localStorage['myUser2'])
-    fetch(url + "/15_Snooze")
+    fetch("https://exceed.superposition.pknn.dev/data/15_Snooze")
         .then(function (response) {
             return response.json();
         })
         .then(function (myJson) {
             if (myJson) {
                 POST({}, "/15_Pill_time")
-                if (index_name == "Pill_time") {
+                if (index_name == "pill_take") {
                     pill_min_array[index_s] = (parseInt(pill_min_array[index_s], 10) + 15).toString()
-                    user["pill_take"][index] = true
-                } else {
-                    activites_min_array[index_s] = (parseInt(activites_min_array[index_s], 10) + 15).toString()
-                    user["activities"][index] = true
+                    user[0]["pill_take"][index] = true
+                } else if (index_name == "activities") {
+                    activities_min_array[index_s] = (parseInt(activities_min_array[index_s], 10) + 15).toString()
+                    user[0]["activities"][index] = true
                 }
                 localStorage.setItem('myUser2', JSON.stringify(user));
                 Snooze_off()
@@ -204,8 +219,11 @@ function Check_loop_get() {
         });
 
 }
-
+if_check = true
 setInterval(async function () {
+    if (if_check) {
+        initial()
+    }
     await Check_loop_sent()
     await Check_loop_get()
-}, 1200);
+}, 10000);
